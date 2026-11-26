@@ -1,0 +1,14 @@
+---
+import ProjectCards from '../components/ProjectCards';
+import { c, } from '../i18n/content';
+import type { Locale } from '../i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const p = c(lang).projects;
+---
+<section id="projects" class="section-pad bg-ink py-24 text-paper">
+  <p class="label mb-8 text-acid">{p.label}</p>
+  <h2 class="mb-14 max-w-4xl font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tighter sm:text-7xl">{p.title}</h2>
+  <ProjectCards client:visible items={p.items} open={p.open} />
+</section>

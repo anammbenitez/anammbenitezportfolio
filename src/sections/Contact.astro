@@ -1,0 +1,29 @@
+---
+import { c, links } from '../i18n/content';
+import type { Locale } from '../i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const k = c(lang).contact;
+const rows = [
+  [k.email, links.email, `mailto:${links.email}`],
+  [k.linkedin, 'in/anammbenitez', links.linkedin],
+  [k.github, 'anammbenitez', links.github],
+] as const;
+---
+<footer id="contact" class="section-pad bg-hot py-24 text-ink">
+  <p class="label mb-8">{k.label}</p>
+  <h2 class="font-display text-[clamp(3.5rem,14vw,12rem)] font-extrabold uppercase leading-[0.85] tracking-tighter">{k.title}</h2>
+  <p class="mt-8 max-w-xl font-serif text-3xl italic">{k.lead}</p>
+  <ul class="mt-12 border-t-2 border-ink">
+    {rows.map(([label, text, href]) => (
+      <li class="border-b-2 border-ink">
+        <a href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'} class="group flex items-baseline justify-between gap-6 py-5 transition-colors hover:bg-ink hover:px-4 hover:text-acid">
+          <span class="label">{label}</span>
+          <span class="break-all text-right font-display text-2xl font-bold sm:text-4xl">{text} <span aria-hidden="true">↗</span></span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="label mt-16 opacity-70">© {new Date().getFullYear()} Ana María Marrero Benítez · {k.footer}</p>
+</footer>

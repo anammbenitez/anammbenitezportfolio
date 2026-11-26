@@ -1,0 +1,23 @@
+---
+import { c } from '../i18n/content';
+import type { Locale } from '../i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const e = c(lang).experience;
+---
+<section id="experience" class="section-pad bg-black py-24 font-mono text-[#b8ffb0]">
+  <p class="label mb-8 text-hot">{e.label}</p>
+  <h2 class="mb-12 text-3xl sm:text-5xl"><span class="text-hot">$</span> {e.title}<span class="ml-1 inline-block h-[1em] w-[0.5ch] translate-y-1 animate-pulse bg-[#b8ffb0]"></span></h2>
+  <ol class="max-w-4xl space-y-8 border-l-2 border-[#b8ffb0]/40 pl-6">
+    {e.items.map((it, i) => (
+      <li class="relative">
+        <span class="absolute -left-[1.95rem] top-1.5 h-3 w-3 bg-[#b8ffb0]"></span>
+        <p class="label text-[#b8ffb0]/60">{String(1000 + (e.items.length - i) * 7).slice(1)} · {it.when}</p>
+        <h3 class="mt-1 text-xl text-paper sm:text-2xl">{it.what}</h3>
+        <p class="label text-acid">{it.where}</p>
+        {it.body && <p class="mt-3 max-w-2xl font-display text-base leading-relaxed text-paper/80">{it.body}</p>}
+      </li>
+    ))}
+  </ol>
+</section>
