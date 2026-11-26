@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import type { Project } from '../i18n/content';
+import { fitToContainer } from '../lib/fit';
 
 interface Props { items: readonly Project[]; open: string }
 
@@ -24,7 +25,7 @@ function Card({ p, i, open }: { p: Project; i: number; open: string }) {
       ref={ref}
       onPointerMove={move}
       onPointerLeave={leave}
-      className={`group relative flex flex-col justify-between border-2 border-paper p-6 text-ink transition-transform duration-200 ease-out ${accent}`}
+      className={`@container group relative flex min-w-0 flex-col justify-between border-2 border-paper p-6 text-ink transition-transform duration-200 ease-out ${accent}`}
       style={{ boxShadow: '8px 8px 0 0 var(--color-volt)' }}
     >
       <div>
@@ -32,7 +33,7 @@ function Card({ p, i, open }: { p: Project; i: number; open: string }) {
           <span>{String(i + 1).padStart(2, '0')} · {p.kind}</span>
           <span className="border-2 border-ink px-2 py-0.5">{p.status}</span>
         </div>
-        <h3 className="mt-6 font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tight">{p.name}</h3>
+        <h3 className="mt-6 font-display font-extrabold uppercase leading-[0.9] tracking-tight" style={{ fontSize: fitToContainer(p.name, 3, 0.74) }}>{p.name}</h3>
         <p className="mt-4 text-base leading-relaxed">{p.desc}</p>
       </div>
       <div className="mt-8">
@@ -51,7 +52,7 @@ function Card({ p, i, open }: { p: Project; i: number; open: string }) {
 
 export default function ProjectCards({ items, open }: Props) {
   return (
-    <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
       {items.map((p, i) => <Card key={p.name} p={p} i={i} open={open} />)}
     </div>
   );

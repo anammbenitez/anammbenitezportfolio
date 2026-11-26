@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Skill } from '../i18n/content';
+import { fitToContainer } from '../lib/fit';
 
 interface Props { items: readonly Skill[]; hint: string }
 
@@ -18,12 +19,12 @@ export default function SkillGrid({ items, hint }: Props) {
                 aria-pressed={on}
                 onClick={() => setSel(on ? null : s)}
                 className={
-                  'flex aspect-square w-full flex-col justify-between border-2 border-paper p-3 text-left transition-all duration-150 ' +
+                  '@container flex aspect-square w-full min-w-0 flex-col justify-between border-2 border-paper p-3 text-left transition-all duration-150 ' +
                   (on ? 'bg-acid text-ink -translate-y-1 rotate-0' : 'bg-transparent text-paper hover:bg-hot hover:text-ink ' + (i % 2 ? 'hover:rotate-2' : 'hover:-rotate-2'))
                 }
               >
                 <span className="label opacity-70">{s.group}</span>
-                <span className="font-display text-2xl font-extrabold leading-none sm:text-3xl">{s.name}</span>
+                <span className="font-display font-extrabold leading-none" style={{ fontSize: fitToContainer(s.name, 1.875, 0.7) }}>{s.name}</span>
               </button>
             </li>
           );
