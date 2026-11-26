@@ -11,7 +11,7 @@ Content source: LinkedIn PDF export (Profile.pdf) + github.com/anammbenitez.
 - S6: Content comes from the real profile (no invented experience): BITBOX S.L. internship Jul-Oct 2026 (Java, Spring Boot, ETL -> Dagster migration plan approved), DAM at ICSE, Python, SQL, PostgreSQL, Docker, Git, English advanced; GitHub repos Bandlebox, RecetariumApp, anammbenitezportfolio.
 
 ## Tasks
-- T1 (S2): Scaffold Astro + React + Tailwind, base config, i18n routing /es /en — route: inline — commit: see git log (feat: scaffold)
+- T1 (S2): Scaffold Astro + React + Tailwind, base config, i18n routing /es /en — route: inline — commit: 8592b2f
 - T2 (S3,S5): Design system (tokens, fonts, motion, shared grid) + language switcher — inline — pending
 - T3 (S3,S4,S6): Hero + About — inline — pending
 - T4 (S3,S4,S6): Projects — inline — pending
