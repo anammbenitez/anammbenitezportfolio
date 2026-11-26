@@ -13,6 +13,12 @@ const c = t(lang);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={c.lead} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={c.title} />
+    <meta property="og:description" content={c.lead} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="alternate" hreflang="x-default" href="/es/" />
     <link rel="alternate" hreflang="es" href="/es/" />
     <link rel="alternate" hreflang="en" href="/en/" />
     <title>{c.title}</title>

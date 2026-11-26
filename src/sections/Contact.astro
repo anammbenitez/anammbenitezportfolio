@@ -18,9 +18,9 @@ const rows = [
   <ul class="mt-12 border-t-2 border-ink">
     {rows.map(([label, text, href]) => (
       <li class="border-b-2 border-ink">
-        <a href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'} class="group flex items-baseline justify-between gap-6 py-5 transition-colors hover:bg-ink hover:px-4 hover:text-acid">
+        <a href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'} class="group flex items-baseline justify-between gap-6 -mx-4 px-4 py-5 transition-colors hover:bg-ink hover:text-acid">
           <span class="label">{label}</span>
-          <span class="break-all text-right font-display text-2xl font-bold sm:text-4xl">{text} <span aria-hidden="true">↗</span></span>
+          <span class="min-w-0 text-right [overflow-wrap:anywhere] font-display text-2xl font-bold sm:text-4xl">{text} <span aria-hidden="true">↗</span></span>
         </a>
       </li>
     ))}

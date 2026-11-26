@@ -13,7 +13,7 @@ export default function LangSwitch({ current, label }: Props) {
           lang={l}
           aria-current={l === current ? 'true' : undefined}
           className={
-            'px-3 py-1.5 transition-colors ' +
+            'flex min-h-11 items-center px-4 transition-colors ' +
             (l === current ? 'bg-ink text-acid' : 'hover:bg-acid')
           }
         >

@@ -4,9 +4,11 @@ import { fitToContainer } from '../lib/fit';
 
 interface Props { items: readonly Project[]; open: string }
 
+let tiltQuery: MediaQueryList | undefined;
+
 function Card({ p, i, open }: { p: Project; i: number; open: string }) {
   const ref = useRef<HTMLElement>(null);
-  const fine = () => typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches;
+  const fine = () => (tiltQuery ??= window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)')).matches;
 
   const move = (e: React.PointerEvent) => {
     const el = ref.current;

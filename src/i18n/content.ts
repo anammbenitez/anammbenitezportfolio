@@ -98,7 +98,7 @@ export const content = {
     skills: {
       label: '03 / Stack',
       title: 'My toolbox',
-      hint: 'Press a technology.',
+      hint: 'Pick a technology.',
       items: [
         { name: 'Java', group: 'Backend', note: 'The language of the production ETL processes I analysed.' },
         { name: 'Spring Boot', group: 'Backend', note: 'The framework those processes were built on.' },
