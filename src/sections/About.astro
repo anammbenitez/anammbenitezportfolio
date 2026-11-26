@@ -1,0 +1,26 @@
+---
+import { t, type Locale } from '../i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = t(lang);
+---
+<section id="about" class="section-pad bg-paper py-24 text-ink">
+  <p class="label mb-8 text-volt">{c.aboutLabel}</p>
+  <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
+    <div>
+      <h2 class="font-serif text-6xl leading-[0.95] sm:text-8xl">{c.aboutTitle}</h2>
+      <div class="mt-10 max-w-2xl space-y-5 text-lg leading-relaxed">
+        {c.aboutBody.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+    <dl class="self-end border-t-2 border-ink">
+      {c.facts.map(([k, v]) => (
+        <div class="flex items-baseline justify-between gap-6 border-b-2 border-ink py-4">
+          <dt class="label">{k}</dt>
+          <dd class="text-right font-serif text-2xl">{v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

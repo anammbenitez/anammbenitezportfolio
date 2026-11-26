@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
 
 @theme {
   --color-ink: #0b0b0f;
@@ -6,10 +10,25 @@
   --color-acid: #c6ff3d;
   --color-hot: #ff3d81;
   --color-volt: #5b3dff;
+
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --animate-marquee: marquee 28s linear infinite;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
 }
 
 html { scroll-behavior: smooth; }
+body { font-family: var(--font-display); }
+
+/* Shared section frame: every section changes style, all share this rhythm. */
+.section-pad { padding-inline: clamp(1.25rem, 5vw, 4rem); }
+.label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }

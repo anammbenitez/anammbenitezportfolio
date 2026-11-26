@@ -4,15 +4,21 @@ import { t, type Locale } from '../i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
+const c = t(lang);
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{t(lang).title}</title>
+    <meta name="description" content={c.lead} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="es" href="/es/" />
+    <link rel="alternate" hreflang="en" href="/en/" />
+    <title>{c.title}</title>
   </head>
   <body class="bg-ink text-paper antialiased">
+    <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:bg-ink focus:p-2 focus:text-acid">{c.skipToContent}</a>
     <slot />
   </body>
 </html>

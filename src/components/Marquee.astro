@@ -1,0 +1,10 @@
+---
+interface Props { items: readonly string[] }
+const { items } = Astro.props;
+const row = [...items, ...items];
+---
+<div class="overflow-hidden border-y-2 border-ink bg-ink py-3 text-acid" aria-hidden="true">
+  <div class="flex w-max animate-marquee gap-10 whitespace-nowrap font-mono text-lg uppercase">
+    {row.concat(row).map((s) => <span class="flex items-center gap-10">{s}<span class="text-hot">✱</span></span>)}
+  </div>
+</div>
