@@ -23,6 +23,7 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-display); }
+p { text-wrap: pretty; }
 
 /* Shared section frame: every section changes style, all share this rhythm. */
 .section-pad { padding-inline: clamp(1.25rem, 5vw, 4rem); }
