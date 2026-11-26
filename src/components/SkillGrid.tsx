@@ -23,7 +23,7 @@ export default function SkillGrid({ items, hint }: Props) {
                   (on ? 'bg-acid text-ink -translate-y-1 rotate-0' : 'bg-transparent text-paper hover:bg-hot hover:text-ink ' + (i % 2 ? 'hover:rotate-2' : 'hover:-rotate-2'))
                 }
               >
-                <span className="label opacity-70">{s.group}</span>
+                <span className="label">{s.group}</span>
                 <span className="font-display font-extrabold leading-none" style={{ fontSize: fitToContainer(s.name, 1.875, 0.7) }}>{s.name}</span>
               </button>
             </li>
