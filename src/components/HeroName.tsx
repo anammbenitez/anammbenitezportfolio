@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 interface Props { lines: string[] }
 
-/** Letters grow heavier/wider as the pointer approaches (variable font axes). Static when reduced motion or no hover. */
+/** Heavy at rest; letters near the pointer thin out and widen (variable font axes). Static when reduced motion or no hover. */
 export default function HeroName({ lines }: Props) {
   const root = useRef<HTMLHeadingElement>(null);
 
@@ -22,8 +22,8 @@ export default function HeroName({ lines }: Props) {
           const r = n.getBoundingClientRect();
           const d = Math.hypot(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2));
           const k = Math.max(0, 1 - d / 260);
-          n.style.fontVariationSettings = `"wght" ${Math.round(300 + k * 500)}, "wdth" ${Math.round(75 + k * 25)}`;
-          n.style.color = k > 0.55 ? 'var(--color-hot)' : '';
+          n.style.fontVariationSettings = `"wght" ${Math.round(800 - k * 500)}, "wdth" ${Math.round(85 + k * 15)}`;
+          n.style.color = k > 0.55 ? 'var(--color-volt)' : '';
         }
       });
     };
@@ -38,12 +38,12 @@ export default function HeroName({ lines }: Props) {
   }, []);
 
   return (
-    <h1 ref={root} aria-label={lines.join(' ')} className="font-display uppercase leading-[0.82] tracking-tighter text-ink text-[clamp(3.5rem,17vw,15rem)] font-extrabold" style={{ fontVariationSettings: '"wght" 800, "wdth" 85' }}>
+    <h1 ref={root} aria-label={lines.join(' ')} className="font-display uppercase leading-[0.82] tracking-tight text-ink text-[clamp(3.25rem,15vw,13rem)] font-extrabold" style={{ fontVariationSettings: '"wght" 800, "wdth" 85' }}>
       {lines.map((line) => (
         <span key={line} aria-hidden="true" className="block">
           {Array.from(line).map((ch, i) => (
             <span key={i} data-l className="inline-block transition-[font-variation-settings,color] duration-150 ease-out">
-              {ch}
+              {ch === ' ' ? '\u00a0' : ch}
             </span>
           ))}
         </span>
