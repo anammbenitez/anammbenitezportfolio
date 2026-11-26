@@ -14,9 +14,9 @@ Content source: LinkedIn PDF export (Profile.pdf) + github.com/anammbenitez.
 - T1 (S2): Scaffold Astro + React + Tailwind, base config, i18n routing /es /en — route: inline — commit: 8592b2f
 - T2 (S3,S5): Design system (tokens, fonts, motion, shared grid) + language switcher — inline — commit: 1f2d1de
 - T3 (S3,S4,S6): Hero + About — inline — commit: 1f2d1de
-- T4 (S3,S4,S6): Projects — inline — pending
-- T5 (S3,S4,S6): Skills / stack — inline — pending
-- T6 (S3,S4,S6): Experience + Contact — inline — pending
+- T4 (S3,S4,S6): Projects — inline — commit: c4203ef
+- T5 (S3,S4,S6): Skills / stack — inline — commit: c4203ef
+- T6 (S3,S4,S6): Experience + Contact — inline — commit: c4203ef
 - T7 (S1-S5): Polish, a11y, responsive, reduced-motion, build check — inline — pending
 
 ## Log
