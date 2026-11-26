@@ -31,7 +31,7 @@ export default function SkillGrid({ items, hint }: Props) {
         })}
       </ul>
 
-      <div aria-live="polite" className="self-start border-2 border-paper bg-ink p-6 text-paper lg:sticky lg:top-6">
+      <div aria-live="polite" className="sticky top-2 z-10 order-first self-start border-2 border-paper bg-ink p-4 text-paper lg:top-6 lg:order-none lg:p-6">
         {sel ? (
           <>
             <p className="label text-acid">{sel.group}</p>

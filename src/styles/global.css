@@ -24,6 +24,8 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-display); }
 p { text-wrap: pretty; }
+/* Two-tone ring: ink inside, paper outside, so it reads on acid, violet, pink and black alike. */
+:focus-visible { outline: 3px solid var(--color-ink); outline-offset: 0; box-shadow: 0 0 0 6px var(--color-paper); }
 
 /* Shared section frame: every section changes style, all share this rhythm. */
 .section-pad { padding-inline: clamp(1.25rem, 5vw, 4rem); }
