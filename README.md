@@ -41,3 +41,16 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Development environment (WSL)
+
+This project lives in the WSL filesystem (`~/portfolio`) and must be run from WSL.
+`node_modules` contains Linux binaries (rolldown, esbuild), so running `npm install`
+or `npm run dev` from Windows (PowerShell, or WebStorm with a Windows Node) breaks it.
+It also fails the other way around: a Windows install breaks WSL.
+
+- Run everything from a WSL terminal: `npm ci`, `npm run dev`, `npm run build`.
+- Open the project from Windows at `\\wsl.localhost\Ubuntu\home\xnath\portfolio`.
+- In WebStorm, set the Node interpreter to the WSL one (Settings, Languages & Frameworks, Node.js, Add, WSL) and run npm scripts through it.
+- If `node_modules` gets corrupted: `rm -rf node_modules && npm ci`.
+- Do not edit another copy of this repository (for example `F:\portfolio`) in parallel.
